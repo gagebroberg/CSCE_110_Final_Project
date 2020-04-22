@@ -147,14 +147,24 @@ for brand_and_percentage in percentage_brand_dict_sorted:
 print()
 print("=" * 19)
 
-# here we are plotting a bar graph of the sales vs state data
+# data sets for entry into the graphs
 states = list(set(state_list))
 sales = list(state_dict.keys())
-plt.bar(states, sales)
-plt.xlabel("State")
-plt.ylabel("Amount of sale")
-plt.title("Amount of sale in different states")
-plt.show()
 
-# here we are plotting a line graph of the sales vs month data
+
+
+# creates the bar chart for question 2
+fig = plt.figure(1)
+plt.bar(states, sales)
+plt.xlabel("State", fontsize= 16)
+plt.ylabel("Amount of sale", fontsize = 16)
+plt.title("Amount of sale in different states", fontsize = 16)
+
+# we need the code to graph the pie chart here
+
+
+# we need the code to graph the last line graph for question 5 here
+
+
+plt.show()
 
