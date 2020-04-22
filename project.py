@@ -160,7 +160,10 @@ plt.xlabel("State", fontsize= 16)
 plt.ylabel("Amount of sale", fontsize = 16)
 plt.title("Amount of sale in different states", fontsize = 16)
 
-# we need the code to graph the pie chart here
+# we need the code for the question 3 graph here
+
+
+# we need the code to graph the question 4 pie chart here
 
 
 # we need the code to graph the last line graph for question 5 here
