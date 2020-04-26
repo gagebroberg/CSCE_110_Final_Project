@@ -50,6 +50,7 @@ num_deals = 0
 # creating our initial empty sets and lists for the data to be stored in
 models_set = set()
 raw_contract_date_and_price_dict = {}
+price_state_dict = {}
 brands_list = []
 brands_set = set()
 safety_ratings_set = set()
@@ -67,6 +68,7 @@ for deal in car_data_reader:
     num_deals += 1
     models_set.add(deal[0])
     raw_contract_date_and_price_dict.update({deal[5]: deal[1].split("/")[0]})
+    price_state_dict.update({int(deal[5].replace(",", "")): deal[3]})
     brands_set.add(deal[2])
     brands_list.append(deal[2])
     state_list.append(deal[3])
@@ -86,13 +88,29 @@ print()
 print("=" * 32)
 print()
 
-# creating a set to hold the number of cars sold in each state data and outputting
-state_dict = {}
-state_set = set(state_list)
-for state in state_set:
-    state_dict.update({state_list.count(state): state})
-state_dict_sorted = sorted(state_dict.items(), key=lambda item: item[0], reverse=True)
-print(f"Most number of cars sold ({state_dict_sorted[0][0]}) in {state_dict_sorted[0][1]}.")
+# initializing state totals
+texas = 0
+california = 0
+florida = 0
+nevada = 0
+ohio = 0
+
+# adding each of the revenues by state into the state total
+for revenue, state in price_state_dict.items():
+    if state == "Texas":
+        texas += revenue
+    elif state == "California":
+        california += revenue
+    elif state == "Florida":
+        florida += revenue
+    elif state == "Nevada":
+        nevada += revenue
+    elif state == "Ohio":
+        ohio += revenue
+
+state_dict = {"Texas": texas, "California": california, "Florida": florida, "Ohio": ohio, "Nevada": nevada}
+state_dict_sorted = sorted(state_dict.items(), key=lambda item: item[1], reverse=True)
+print(f"Most number of cars sold ({state_dict_sorted[0][1]}) in {state_dict_sorted[0][0]}.")
 
 # initializing variables for each month to add to
 january = 0
@@ -180,8 +198,8 @@ print()
 print("=" * 19)
 
 # data sets for entry into the graphs
-states = list(set(state_list))
-sales = list(state_dict.keys())
+states = ["Texas", "California", "Florida", "Ohio", "Nevada"]
+sales = list(state_dict.values())
 colors = ['b', 'g', 'r', 'c', 'm']
 
 
@@ -190,10 +208,10 @@ plt.figure(1)
 plt.bar(states, sales, color= colors)
 plt.xlabel("State", fontsize= 16)
 plt.ylabel("Amount of sale", fontsize = 16)
-plt.title("Amount of sale in different states", fontsize = 16)
+plt.title("Amount of sale in different states", fontsize = 16, bbox={'facecolor': '0.5', 'pad': 2})
 
 # creates the line chart for question 3
-fig2 = plt.figure(2, figsize = (9,5))
+plt.figure(2, figsize = (9,5))
 plt.title('Amount of Sales', fontsize = 16)
 plt.xlabel('Months of the year', fontsize = 16)
 plt.ylabel('Sales in Dollars', fontsize = 16)
