@@ -185,6 +185,7 @@ print("=" * 19)
 states = list(set(state_list))
 sales = list(state_dict.keys())
 
+colors = ['b', 'g', 'r', 'c', 'm']
 
 
 # creates the bar chart for question 2
