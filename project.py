@@ -7,6 +7,38 @@
 import matplotlib.pyplot as plt
 import csv
 
+def amount_sale_month_state(state_date_sale_dict, state):
+    '''This function takes the state, date, and sale amount info from the document, and a specfic state as an input. Then for that specific state it adds each amount to its corresponding month in the sale_per_month_list so that we can use that list as the y points in the graph for that state.''' 
+    sale_per_month_list = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
+    for states, date_sale in date_state_sale_dict.items():
+        if states == state:
+            for items in date_sale:
+                if items[0] == '1':
+                    sale_per_month_list[0][0] += items[1]
+                elif items[0] == '2':
+                    sale_per_month_list[1][0] += items[1]
+                elif items[0] == '3':
+                    sale_per_month_list[2][0] += items[1]
+                elif items[0] == '4':
+                    sale_per_month_list[3][0] += items[1]
+                elif items[0] == '5':
+                    sale_per_month_list[4][0] += items[1]
+                elif items[0] == '6':
+                    sale_per_month_list[5][0] += items[1]
+                elif items[0] == '7':
+                    sale_per_month_list[6][0] += items[1]
+                elif items[0] == '8':
+                    sale_per_month_list[7][0] += items[1]
+                elif items[0] == '9':
+                    sale_per_month_list[8][0] += items[1]
+                elif items[0] == '10':
+                    sale_per_month_list[9][0] += items[1]
+                elif items[0] == '11':
+                    sale_per_month_list[10][0] += items[1]
+                elif items[0] == '12':
+                    sale_per_month_list[11][0] += items[1]
+    return sale_per_month_list
+
 print("=" * 8 + "Dataset details" + "=" * 8)
 print()
 
@@ -154,7 +186,7 @@ sales = list(state_dict.keys())
 
 
 # creates the bar chart for question 2
-fig = plt.figure(1)
+plt.figure(1)
 plt.bar(states, sales)
 plt.xlabel("State", fontsize= 16)
 plt.ylabel("Amount of sale", fontsize = 16)
@@ -178,10 +210,57 @@ plt.plot(months, y_val)
 plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)
 
 # we need the code to graph the question 4 pie chart here
+plt.figure(3)
+labels = []
+sizes = []
+for brand_percentage in percentage_brand_dict_sorted:       #Separates the dictionary into two lists to use as labels and sizes for the pie graph.
+    labels.append(brand_percentage[0]) 
+    sizes.append(brand_percentage[1])
+colors = ['b', 'g', 'r', 'c', 'm', 'y']
+number = 0
+for num in range(len(percentage_brand_dict_sorted)):    #Helps assign colors to all elements of chart
+    if number == len(percentage_brand_dict_sorted) - 1:
+        number = 0
+    colors.append(colors[number])
+    number += 1
+plt.pie(sizes, labels = labels, colors = colors, autopct='%1.2f%%')
 
 
 # we need the code to graph the last line graph for question 5 here
+car_data_file = open("2019_car_sale.csv")
+car_data_reader = csv.reader(car_data_file)
+date_state_sale_dict = {'Texas':[],'Ohio':[],'California':[],'Nevada':[],'Florida':[]}
+header = True
+for deal in car_data_reader:        #Creates dictionary for the function that will makes the y-points for each state
+    if header:
+        header = False
+        continue    
+    date = deal[1].split("/")[0]
+    state = deal[3]
+    sale = int(deal[5].replace(",", ""))
+    date_state_sale_dict[state].append([date, sale])
+    
+x_points = ['Janurary','February','March','April','May','June','July','August','September','October','November','December']
+texas_y_points = amount_sale_month_state(date_state_sale_dict, 'Texas')
+cali_y_points = amount_sale_month_state(date_state_sale_dict, 'California')
+florida_y_points = amount_sale_month_state(date_state_sale_dict, 'Florida')
+ohio_y_points = amount_sale_month_state(date_state_sale_dict, 'Ohio')
+nevada_y_points = amount_sale_month_state(date_state_sale_dict, 'Nevada')
+car_data_file.close()           #All y-points created
 
+
+plt.figure(4, figsize = (12,5))       #Plots the points with respective legend
+
+plt.xlabel('Months')        #Customization
+plt.ylabel('Amount of Sale')
+plt.title('Amount of Sale in Different Months in Each State')
+
+plt.plot(x_points, texas_y_points, color = 'r')
+plt.plot(x_points, cali_y_points, color = 'b')
+plt.plot(x_points, florida_y_points, color = 'c')
+plt.plot(x_points, ohio_y_points, color = 'y')
+plt.plot(x_points, nevada_y_points, color = 'g')
+plt.legend(['Texas', 'California','Florida','Ohio','Nevada'])
 
 plt.show()
 
