@@ -190,7 +190,8 @@ colors = ['b', 'g', 'r', 'c', 'm']
 
 # creates the bar chart for question 2
 fig = plt.figure(1)
-plt.bar(states, sales)
+plt.bar(states, sales, color= colors)
+
 plt.xlabel("State", fontsize= 16)
 plt.ylabel("Amount of sale", fontsize = 16)
 plt.title("Amount of sale in different states", fontsize = 16)
