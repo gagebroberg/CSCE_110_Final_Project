@@ -160,8 +160,22 @@ plt.xlabel("State", fontsize= 16)
 plt.ylabel("Amount of sale", fontsize = 16)
 plt.title("Amount of sale in different states", fontsize = 16)
 
-# we need the code for the question 3 graph here
+# creates the line chart for question 3
+fig2 = plt.figure(2)
+plt.title('Amount of Sales', fontsize = 16)
+plt.xlabel('Months of the year', fontsize = 16)
+plt.ylabel('Sales in Dollars', fontsize = 16)
+# creating the X values
+months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
+# creating the y values
+y_val = []
+for value in contract_date_and_price_dict.values():
+    y_val.append(value)
+plt.plot(months, y_val)
+
+# turning off scientific notation
+plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)
 
 # we need the code to graph the question 4 pie chart here
 
