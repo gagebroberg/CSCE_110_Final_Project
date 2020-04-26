@@ -239,7 +239,8 @@ plt.xlabel('Months')        #Customization
 plt.ylabel('Amount of Sale')
 plt.title('Amount of Sale in Different Months in Each State')
 
-plt.figure(4)       #Plots the points with respective legend
+plt.figure(4, figsize = (12,5))       #Plots the points with respective legend
+
 plt.plot(x_points, texas_y_points, color = 'r')
 plt.plot(x_points, cali_y_points, color = 'b')
 plt.plot(x_points, florida_y_points, color = 'c')
