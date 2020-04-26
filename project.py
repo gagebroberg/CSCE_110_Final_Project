@@ -223,6 +223,7 @@ for num in range(len(percentage_brand_dict_sorted)):    #Helps assign colors to 
         number = 0
     colors.append(colors[number])
     number += 1
+plt.title('Percentage of Colors by Different Car Brands', bbox={'facecolor':'0.5', 'pad':7})
 plt.pie(sizes, labels = labels, colors = colors, autopct='%1.2f%%')
 
 
