@@ -193,7 +193,7 @@ plt.ylabel("Amount of sale", fontsize = 16)
 plt.title("Amount of sale in different states", fontsize = 16)
 
 # creates the line chart for question 3
-fig2 = plt.figure(2)
+fig2 = plt.figure(2, figsize = (9,5))
 plt.title('Amount of Sales', fontsize = 16)
 plt.xlabel('Months of the year', fontsize = 16)
 plt.ylabel('Sales in Dollars', fontsize = 16)
