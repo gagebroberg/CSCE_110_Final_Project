@@ -233,7 +233,7 @@ labels = []
 sizes = []
 for brand_percentage in percentage_brand_dict_sorted:       #Separates the dictionary into two lists to use as labels and sizes for the pie graph.
     labels.append(brand_percentage[0]) 
-    sizes.append(brand_percentage[1])
+    sizes.append(round(brand_percentage[1], 1))
 colors = ['b', 'g', 'r', 'c', 'm', 'y']
 number = 0
 for num in range(len(percentage_brand_dict_sorted)):    #Helps assign colors to all elements of chart
@@ -242,7 +242,7 @@ for num in range(len(percentage_brand_dict_sorted)):    #Helps assign colors to 
     colors.append(colors[number])
     number += 1
 plt.title('Percentage of Colors by Different Car Brands', bbox={'facecolor':'0.5', 'pad':7})
-plt.pie(sizes, labels = labels, colors = colors, autopct='%1.2f%%')
+plt.pie(sizes, labels = labels, colors = colors, autopct='%1.1f%%')
 
 
 # we need the code to graph the last line graph for question 5 here
