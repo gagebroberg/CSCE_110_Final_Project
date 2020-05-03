@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>project API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>project</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># File: project.py
+# Author: Gage Broberg, Brandon Torres, Jermome Porter
+# Date: 05/01/2020
+# E-mail: gagebroberg@tamu.edu, brandontorres28@tamu.edu, officialjp201@tamu.edu
+# Description: The Dealership Manager, This program takes in data from a CSV file and uses that data to compute multiple data points for the dealer manager. It also creates visual graphs for the manager to better visualize the data in the CSV file.
+
+# Import modules
+import matplotlib.pyplot as plt
+import csv
+
+def amount_sale_month_state(state_date_sale_dict, state):
+    &#39;&#39;&#39;This function takes the state, date, and sale amount info from the document, and a specfic state as an input. Then for that specific state it adds each amount to its corresponding month in the sale_per_month_list so that we can use that list as the y points in the graph for that state.&#39;&#39;&#39; 
+    sale_per_month_list = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
+    for states, date_sale in state_date_sale_dict.items():
+        if states == state:
+            for items in date_sale:
+                if items[0] == &#39;1&#39;:
+                    sale_per_month_list[0][0] += items[1]
+                elif items[0] == &#39;2&#39;:
+                    sale_per_month_list[1][0] += items[1]
+                elif items[0] == &#39;3&#39;:
+                    sale_per_month_list[2][0] += items[1]
+                elif items[0] == &#39;4&#39;:
+                    sale_per_month_list[3][0] += items[1]
+                elif items[0] == &#39;5&#39;:
+                    sale_per_month_list[4][0] += items[1]
+                elif items[0] == &#39;6&#39;:
+                    sale_per_month_list[5][0] += items[1]
+                elif items[0] == &#39;7&#39;:
+                    sale_per_month_list[6][0] += items[1]
+                elif items[0] == &#39;8&#39;:
+                    sale_per_month_list[7][0] += items[1]
+                elif items[0] == &#39;9&#39;:
+                    sale_per_month_list[8][0] += items[1]
+                elif items[0] == &#39;10&#39;:
+                    sale_per_month_list[9][0] += items[1]
+                elif items[0] == &#39;11&#39;:
+                    sale_per_month_list[10][0] += items[1]
+                elif items[0] == &#39;12&#39;:
+                    sale_per_month_list[11][0] += items[1]
+                    
+    return sale_per_month_list
+
+
+def amount_sale_brand(brand):
+    &#39;&#39;&#39;Returns the total amount of sale for the inputed brand from the csv file&#39;&#39;&#39;
+    with open(&#34;2019_car_sale.csv&#34;) as car_data_file:
+        car_data_reader = csv.reader(car_data_file)
+        brand_amount = 0
+        header = True
+        for deal in car_data_reader:
+            # This if statement is able to skip the first wor of the csv file, which is just the title headers
+            if header:
+                header = False
+                continue
+            if deal[2] == str(brand):
+                
+                brand_amount = brand_amount + int(deal[5].replace(&#34;,&#34;, &#34;&#34;))
+                
+    return brand_amount
+
+
+def section_1():     
+    &#39;&#39;&#39;This Function runs the code required for section 1 of the output and returns any necessary variables for futher functions&#39;&#39;&#39;
+    print(&#34;=&#34; * 8 + &#34;Dataset details&#34; + &#34;=&#34; * 8)
+    print()
+    
+    # opening the csv file and creating our handle to read the data
+    car_data_file = open(&#34;2019_car_sale.csv&#34;)
+    car_data_reader = csv.reader(car_data_file)
+    num_deals = 0
+    
+    # creating our initial empty sets and lists for the data to be stored in
+    models_set = set()
+    raw_contract_date_and_price_dict = {}
+    price_state_dict = {}
+    brands_list = []
+    brands_set = set()
+    safety_ratings_set = set()
+    colors_set = set()
+    state_list = []
+    sales_amount_list = []
+    
+    # here we are taking the data and inputting it into the previously created sets and lists for use in the program
+    header = True
+    for deal in car_data_reader:
+        # This if statement is able to skip the first wor of the csv file, which is just the title headers
+        if header:
+            header = False
+            continue
+        num_deals += 1
+        models_set.add(deal[0])
+        raw_contract_date_and_price_dict.update({deal[5]: deal[1].split(&#34;/&#34;)[0]})
+        price_state_dict.update({int(deal[5].replace(&#34;,&#34;, &#34;&#34;)): deal[3]})
+        brands_set.add(deal[2])
+        brands_list.append(deal[2])
+        state_list.append(deal[3])
+        safety_ratings_set.add(deal[4])
+        sales_amount_list.append(deal[5])
+        colors_set.add(deal[6])
+    
+    # print statements required in the sample output 1
+    sales_amount_list = [int(amount.replace(&#34;,&#34;, &#34;&#34;)) for amount in sales_amount_list]
+    print(f&#34;Total number of deals: {num_deals}&#34;)
+    print(f&#34;Number of different car models: {len(models_set)}&#34;)
+    print(f&#34;Number of different car brands: {len(brands_set)}&#34;)
+    print(f&#34;Number of different car safety ratings: {len(safety_ratings_set)}&#34;)
+    print(f&#34;Number of different car colors: {len(colors_set)}&#34;)
+    print(f&#34;Total amount of sale: {sum(sales_amount_list)}&#34;)
+    print()
+    print(&#34;=&#34; * 32)
+    print()
+    
+    # initializing state totals
+    texas = 0
+    california = 0
+    florida = 0
+    nevada = 0
+    ohio = 0
+    
+    # adding each of the revenues by state into the state total
+    for revenue, state in price_state_dict.items():
+        if state == &#34;Texas&#34;:
+            texas += revenue
+        elif state == &#34;California&#34;:
+            california += revenue
+        elif state == &#34;Florida&#34;:
+            florida += revenue
+        elif state == &#34;Nevada&#34;:
+            nevada += revenue
+        elif state == &#34;Ohio&#34;:
+            ohio += revenue
+    
+    state_dict = {&#34;Texas&#34;: texas, &#34;California&#34;: california, &#34;Florida&#34;: florida, &#34;Ohio&#34;: ohio, &#34;Nevada&#34;: nevada}
+    state_dict_sorted = sorted(state_dict.items(), key=lambda item: item[1], reverse=True)
+    print(f&#34;Most number of cars sold ({state_dict_sorted[0][1]}) in {state_dict_sorted[0][0]}.&#34;)
+    
+    # initializing variables for each month to add to
+    january = 0
+    february = 0
+    march = 0
+    april = 0
+    may = 0
+    june = 0
+    july = 0
+    august = 0
+    september = 0
+    october = 0
+    november = 0
+    december = 0
+    monthly_sales_dict = {}
+    
+    # adding each of the values by state into their respective variables
+    for key, value in raw_contract_date_and_price_dict.items():
+        if value == &#34;1&#34;:
+            january += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;2&#34;:
+            february += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;3&#34;:
+            march += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;4&#34;:
+            april += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;5&#34;:
+            may += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;6&#34;:
+            june += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;7&#34;:
+            july += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;8&#34;:
+            august += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;9&#34;:
+            september += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;10&#34;:
+            october += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;11&#34;:
+            november += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;12&#34;:
+            december += int(key.replace(&#34;,&#34;, &#34;&#34;))
+    
+    # creating a dictionary that holds revenue in each individual month and printing the max revenue and month
+    contract_date_and_price_dict = {
+        &#34;January&#34;: january,
+        &#34;February&#34;: february,
+        &#34;March&#34;: march,
+        &#34;April&#34;: april,
+        &#34;May&#34;: may,
+        &#34;June&#34;: june,
+        &#34;July&#34;: july,
+        &#34;August&#34;: august,
+        &#34;September&#34;: september,
+        &#34;October&#34;: october,
+        &#34;November&#34;: november,
+        &#34;December&#34;: december
+    }
+    contract_date_and_price_dict_sorted = sorted(contract_date_and_price_dict.items(), key=lambda item: item[1], reverse=True)
+    print(f&#34;Maximum amount of sale ({contract_date_and_price_dict_sorted[0][1]}) was in {contract_date_and_price_dict_sorted[0][0]}.&#34;)
+    
+    print()
+    print(&#34;=&#34; * 32)
+    print()
+    print(&#34;=&#34; * 8 + &#34;Amount of sale based on car brands&#34; + &#34;=&#34; * 8)
+    print()
+    
+    # calculating percentages for different car brands and adding them to a dictionary
+    brand_dict = {}
+    for brand in brands_set:
+        brand_amount = amount_sale_brand(brand)
+        brand_dict.update({brand: brand_amount})
+    others = 0
+    percentage_brand_dict = {}
+    other_category_cutoff = sum(sales_amount_list) * 0.04
+    for brand, sales in brand_dict.items():
+        if sales &lt; other_category_cutoff:
+            others += sales / sum(sales_amount_list) * 100
+        else:
+            percentage_brand_dict.update({brand: sales / sum(sales_amount_list) * 100})
+    percentage_brand_dict.update({&#34;Others&#34;: others})
+    percentage_brand_dict_sorted = sorted(percentage_brand_dict.items(), key=lambda item: item[1], reverse=True)
+    for brand_and_percentage in percentage_brand_dict_sorted:
+        print(f&#34;{brand_and_percentage[0]} : {round(brand_and_percentage[1], 2)}%&#34;)
+    print()
+    print(&#34;=&#34; * 19)
+    
+    return state_dict, contract_date_and_price_dict, percentage_brand_dict_sorted
+
+
+def section_2(state_dict):
+    &#39;&#39;&#39;Creates bar graph for section 2 of output&#39;&#39;&#39;
+    # data sets for entry into the graphs
+    states = [&#34;Texas&#34;, &#34;California&#34;, &#34;Florida&#34;, &#34;Ohio&#34;, &#34;Nevada&#34;]
+    sales = list(state_dict.values())
+    colors = [&#39;b&#39;, &#39;g&#39;, &#39;r&#39;, &#39;c&#39;, &#39;m&#39;]
+    
+    # creates the bar chart for question 2
+    plt.figure(1)
+    plt.bar(states, sales, color= colors)
+    plt.xlabel(&#34;State&#34;, fontsize= 16)
+    plt.ylabel(&#34;Amount of sale&#34;, fontsize = 16)
+    plt.title(&#34;Amount of sale in different states&#34;, fontsize = 16, bbox={&#39;facecolor&#39;: &#39;0.5&#39;, &#39;pad&#39;: 2})
+
+
+def section_3(contract_date_and_price_dict):
+    &#39;&#39;&#39;Creates graph for section 3 of the output&#39;&#39;&#39;
+    # creates the line chart for question 3
+    plt.figure(2, figsize = (9,5))
+    plt.title(&#39;Amount of Sales&#39;, fontsize = 16)
+    plt.xlabel(&#39;Months of the year&#39;, fontsize = 16)
+    plt.ylabel(&#39;Sales in Dollars&#39;, fontsize = 16)
+    # creating the X values
+    months = [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;April&#39;, &#39;May&#39;, &#39;Jun&#39;, &#39;Jul&#39;, &#39;Aug&#39;, &#39;Sep&#39;, &#39;Oct&#39;, &#39;Nov&#39;, &#39;Dec&#39;]
+    
+    # creating the y values
+    y_val = []
+    for value in contract_date_and_price_dict.values():
+        y_val.append(value)
+    plt.plot(months, y_val)
+    
+    # turning off scientific notation
+    plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)
+
+# This function creates the pie graph for question 4
+def section_4(percentage_brand_dict_sorted):
+    &#39;&#39;&#39;Creates pie chart for section 4 of the output&#39;&#39;&#39;
+    plt.figure(3)
+    labels = []
+    sizes = []
+    for brand_percentage in percentage_brand_dict_sorted:       #Separates the dictionary into two lists to use as labels and sizes for the pie graph.
+        labels.append(brand_percentage[0]) 
+        sizes.append(round(brand_percentage[1], 1))
+    colors = [&#39;b&#39;, &#39;g&#39;, &#39;r&#39;, &#39;c&#39;, &#39;m&#39;, &#39;y&#39;]
+    number = 0
+    for num in range(len(percentage_brand_dict_sorted)):    #Helps assign colors to all elements of chart
+        if number == len(percentage_brand_dict_sorted) - 1:
+            number = 0
+        colors.append(colors[number])
+        number += 1
+    plt.title(&#39;Percentage of Colors by Different Car Brands&#39;, bbox={&#39;facecolor&#39;:&#39;0.5&#39;, &#39;pad&#39;:7})
+    plt.pie(sizes, labels = labels, colors = colors, autopct=&#39;%1.1f%%&#39;)
+
+
+# This function creates the line graph for question 5
+def section_5():
+    &#39;&#39;&#39;Creates graph for last section of output&#39;&#39;&#39;
+    car_data_file = open(&#34;2019_car_sale.csv&#34;)
+    car_data_reader = csv.reader(car_data_file)
+    date_state_sale_dict = {&#39;Texas&#39;:[],&#39;Ohio&#39;:[],&#39;California&#39;:[],&#39;Nevada&#39;:[],&#39;Florida&#39;:[]}
+    header = True
+    for deal in car_data_reader:        #Creates dictionary for the function that will makes the y-points for each state
+        if header:
+            header = False
+            continue    
+        date = deal[1].split(&#34;/&#34;)[0]
+        state = deal[3]
+        sale = int(deal[5].replace(&#34;,&#34;, &#34;&#34;))
+        date_state_sale_dict[state].append([date, sale])
+        
+    x_points = [&#39;Janurary&#39;,&#39;February&#39;,&#39;March&#39;,&#39;April&#39;,&#39;May&#39;,&#39;June&#39;,&#39;July&#39;,&#39;August&#39;,&#39;September&#39;,&#39;October&#39;,&#39;November&#39;,&#39;December&#39;]
+    texas_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Texas&#39;)
+    cali_y_points = amount_sale_month_state(date_state_sale_dict, &#39;California&#39;)
+    florida_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Florida&#39;)
+    ohio_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Ohio&#39;)
+    nevada_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Nevada&#39;)
+    car_data_file.close()           #All y-points created
+        
+    plt.figure(4, figsize = (12,5))       #Plots the points with respective legend
+    
+    plt.xlabel(&#39;Months&#39;)        #Customization
+    plt.ylabel(&#39;Amount of Sale&#39;)
+    plt.title(&#39;Amount of Sale in Different Months in Each State&#39;)
+    
+    plt.plot(x_points, texas_y_points, color = &#39;r&#39;)
+    plt.plot(x_points, cali_y_points, color = &#39;b&#39;)
+    plt.plot(x_points, florida_y_points, color = &#39;c&#39;)
+    plt.plot(x_points, ohio_y_points, color = &#39;y&#39;)
+    plt.plot(x_points, nevada_y_points, color = &#39;g&#39;)
+    plt.legend([&#39;Texas&#39;, &#39;California&#39;,&#39;Florida&#39;,&#39;Ohio&#39;,&#39;Nevada&#39;])
+
+# Main function that runs the different section functions.
+def main():
+    &#39;&#39;&#39;Runs the different section functions under one main function, getting variables as needed&#39;&#39;&#39;
+    state_dict, contract_date_and_price_dict, percentage_brand_dict_sorted = section_1()
+    section_2(state_dict)
+    section_3(contract_date_and_price_dict)
+    section_4(percentage_brand_dict_sorted)
+    section_5()
+    plt.show()
+
+
+main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="project.amount_sale_brand"><code class="name flex">
+<span>def <span class="ident">amount_sale_brand</span></span>(<span>brand)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the total amount of sale for the inputed brand from the csv file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def amount_sale_brand(brand):
+    &#39;&#39;&#39;Returns the total amount of sale for the inputed brand from the csv file&#39;&#39;&#39;
+    with open(&#34;2019_car_sale.csv&#34;) as car_data_file:
+        car_data_reader = csv.reader(car_data_file)
+        brand_amount = 0
+        header = True
+        for deal in car_data_reader:
+            # This if statement is able to skip the first wor of the csv file, which is just the title headers
+            if header:
+                header = False
+                continue
+            if deal[2] == str(brand):
+                
+                brand_amount = brand_amount + int(deal[5].replace(&#34;,&#34;, &#34;&#34;))
+                
+    return brand_amount</code></pre>
+</details>
+</dd>
+<dt id="project.amount_sale_month_state"><code class="name flex">
+<span>def <span class="ident">amount_sale_month_state</span></span>(<span>state_date_sale_dict, state)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function takes the state, date, and sale amount info from the document, and a specfic state as an input. Then for that specific state it adds each amount to its corresponding month in the sale_per_month_list so that we can use that list as the y points in the graph for that state.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def amount_sale_month_state(state_date_sale_dict, state):
+    &#39;&#39;&#39;This function takes the state, date, and sale amount info from the document, and a specfic state as an input. Then for that specific state it adds each amount to its corresponding month in the sale_per_month_list so that we can use that list as the y points in the graph for that state.&#39;&#39;&#39; 
+    sale_per_month_list = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
+    for states, date_sale in state_date_sale_dict.items():
+        if states == state:
+            for items in date_sale:
+                if items[0] == &#39;1&#39;:
+                    sale_per_month_list[0][0] += items[1]
+                elif items[0] == &#39;2&#39;:
+                    sale_per_month_list[1][0] += items[1]
+                elif items[0] == &#39;3&#39;:
+                    sale_per_month_list[2][0] += items[1]
+                elif items[0] == &#39;4&#39;:
+                    sale_per_month_list[3][0] += items[1]
+                elif items[0] == &#39;5&#39;:
+                    sale_per_month_list[4][0] += items[1]
+                elif items[0] == &#39;6&#39;:
+                    sale_per_month_list[5][0] += items[1]
+                elif items[0] == &#39;7&#39;:
+                    sale_per_month_list[6][0] += items[1]
+                elif items[0] == &#39;8&#39;:
+                    sale_per_month_list[7][0] += items[1]
+                elif items[0] == &#39;9&#39;:
+                    sale_per_month_list[8][0] += items[1]
+                elif items[0] == &#39;10&#39;:
+                    sale_per_month_list[9][0] += items[1]
+                elif items[0] == &#39;11&#39;:
+                    sale_per_month_list[10][0] += items[1]
+                elif items[0] == &#39;12&#39;:
+                    sale_per_month_list[11][0] += items[1]
+                    
+    return sale_per_month_list</code></pre>
+</details>
+</dd>
+<dt id="project.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs the different section functions under one main function, getting variables as needed</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    &#39;&#39;&#39;Runs the different section functions under one main function, getting variables as needed&#39;&#39;&#39;
+    state_dict, contract_date_and_price_dict, percentage_brand_dict_sorted = section_1()
+    section_2(state_dict)
+    section_3(contract_date_and_price_dict)
+    section_4(percentage_brand_dict_sorted)
+    section_5()
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="project.section_1"><code class="name flex">
+<span>def <span class="ident">section_1</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This Function runs the code required for section 1 of the output and returns any necessary variables for futher functions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def section_1():     
+    &#39;&#39;&#39;This Function runs the code required for section 1 of the output and returns any necessary variables for futher functions&#39;&#39;&#39;
+    print(&#34;=&#34; * 8 + &#34;Dataset details&#34; + &#34;=&#34; * 8)
+    print()
+    
+    # opening the csv file and creating our handle to read the data
+    car_data_file = open(&#34;2019_car_sale.csv&#34;)
+    car_data_reader = csv.reader(car_data_file)
+    num_deals = 0
+    
+    # creating our initial empty sets and lists for the data to be stored in
+    models_set = set()
+    raw_contract_date_and_price_dict = {}
+    price_state_dict = {}
+    brands_list = []
+    brands_set = set()
+    safety_ratings_set = set()
+    colors_set = set()
+    state_list = []
+    sales_amount_list = []
+    
+    # here we are taking the data and inputting it into the previously created sets and lists for use in the program
+    header = True
+    for deal in car_data_reader:
+        # This if statement is able to skip the first wor of the csv file, which is just the title headers
+        if header:
+            header = False
+            continue
+        num_deals += 1
+        models_set.add(deal[0])
+        raw_contract_date_and_price_dict.update({deal[5]: deal[1].split(&#34;/&#34;)[0]})
+        price_state_dict.update({int(deal[5].replace(&#34;,&#34;, &#34;&#34;)): deal[3]})
+        brands_set.add(deal[2])
+        brands_list.append(deal[2])
+        state_list.append(deal[3])
+        safety_ratings_set.add(deal[4])
+        sales_amount_list.append(deal[5])
+        colors_set.add(deal[6])
+    
+    # print statements required in the sample output 1
+    sales_amount_list = [int(amount.replace(&#34;,&#34;, &#34;&#34;)) for amount in sales_amount_list]
+    print(f&#34;Total number of deals: {num_deals}&#34;)
+    print(f&#34;Number of different car models: {len(models_set)}&#34;)
+    print(f&#34;Number of different car brands: {len(brands_set)}&#34;)
+    print(f&#34;Number of different car safety ratings: {len(safety_ratings_set)}&#34;)
+    print(f&#34;Number of different car colors: {len(colors_set)}&#34;)
+    print(f&#34;Total amount of sale: {sum(sales_amount_list)}&#34;)
+    print()
+    print(&#34;=&#34; * 32)
+    print()
+    
+    # initializing state totals
+    texas = 0
+    california = 0
+    florida = 0
+    nevada = 0
+    ohio = 0
+    
+    # adding each of the revenues by state into the state total
+    for revenue, state in price_state_dict.items():
+        if state == &#34;Texas&#34;:
+            texas += revenue
+        elif state == &#34;California&#34;:
+            california += revenue
+        elif state == &#34;Florida&#34;:
+            florida += revenue
+        elif state == &#34;Nevada&#34;:
+            nevada += revenue
+        elif state == &#34;Ohio&#34;:
+            ohio += revenue
+    
+    state_dict = {&#34;Texas&#34;: texas, &#34;California&#34;: california, &#34;Florida&#34;: florida, &#34;Ohio&#34;: ohio, &#34;Nevada&#34;: nevada}
+    state_dict_sorted = sorted(state_dict.items(), key=lambda item: item[1], reverse=True)
+    print(f&#34;Most number of cars sold ({state_dict_sorted[0][1]}) in {state_dict_sorted[0][0]}.&#34;)
+    
+    # initializing variables for each month to add to
+    january = 0
+    february = 0
+    march = 0
+    april = 0
+    may = 0
+    june = 0
+    july = 0
+    august = 0
+    september = 0
+    october = 0
+    november = 0
+    december = 0
+    monthly_sales_dict = {}
+    
+    # adding each of the values by state into their respective variables
+    for key, value in raw_contract_date_and_price_dict.items():
+        if value == &#34;1&#34;:
+            january += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;2&#34;:
+            february += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;3&#34;:
+            march += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;4&#34;:
+            april += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;5&#34;:
+            may += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;6&#34;:
+            june += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;7&#34;:
+            july += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;8&#34;:
+            august += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;9&#34;:
+            september += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;10&#34;:
+            october += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;11&#34;:
+            november += int(key.replace(&#34;,&#34;, &#34;&#34;))
+        elif value == &#34;12&#34;:
+            december += int(key.replace(&#34;,&#34;, &#34;&#34;))
+    
+    # creating a dictionary that holds revenue in each individual month and printing the max revenue and month
+    contract_date_and_price_dict = {
+        &#34;January&#34;: january,
+        &#34;February&#34;: february,
+        &#34;March&#34;: march,
+        &#34;April&#34;: april,
+        &#34;May&#34;: may,
+        &#34;June&#34;: june,
+        &#34;July&#34;: july,
+        &#34;August&#34;: august,
+        &#34;September&#34;: september,
+        &#34;October&#34;: october,
+        &#34;November&#34;: november,
+        &#34;December&#34;: december
+    }
+    contract_date_and_price_dict_sorted = sorted(contract_date_and_price_dict.items(), key=lambda item: item[1], reverse=True)
+    print(f&#34;Maximum amount of sale ({contract_date_and_price_dict_sorted[0][1]}) was in {contract_date_and_price_dict_sorted[0][0]}.&#34;)
+    
+    print()
+    print(&#34;=&#34; * 32)
+    print()
+    print(&#34;=&#34; * 8 + &#34;Amount of sale based on car brands&#34; + &#34;=&#34; * 8)
+    print()
+    
+    # calculating percentages for different car brands and adding them to a dictionary
+    brand_dict = {}
+    for brand in brands_set:
+        brand_amount = amount_sale_brand(brand)
+        brand_dict.update({brand: brand_amount})
+    others = 0
+    percentage_brand_dict = {}
+    other_category_cutoff = sum(sales_amount_list) * 0.04
+    for brand, sales in brand_dict.items():
+        if sales &lt; other_category_cutoff:
+            others += sales / sum(sales_amount_list) * 100
+        else:
+            percentage_brand_dict.update({brand: sales / sum(sales_amount_list) * 100})
+    percentage_brand_dict.update({&#34;Others&#34;: others})
+    percentage_brand_dict_sorted = sorted(percentage_brand_dict.items(), key=lambda item: item[1], reverse=True)
+    for brand_and_percentage in percentage_brand_dict_sorted:
+        print(f&#34;{brand_and_percentage[0]} : {round(brand_and_percentage[1], 2)}%&#34;)
+    print()
+    print(&#34;=&#34; * 19)
+    
+    return state_dict, contract_date_and_price_dict, percentage_brand_dict_sorted</code></pre>
+</details>
+</dd>
+<dt id="project.section_2"><code class="name flex">
+<span>def <span class="ident">section_2</span></span>(<span>state_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates bar graph for section 2 of output</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def section_2(state_dict):
+    &#39;&#39;&#39;Creates bar graph for section 2 of output&#39;&#39;&#39;
+    # data sets for entry into the graphs
+    states = [&#34;Texas&#34;, &#34;California&#34;, &#34;Florida&#34;, &#34;Ohio&#34;, &#34;Nevada&#34;]
+    sales = list(state_dict.values())
+    colors = [&#39;b&#39;, &#39;g&#39;, &#39;r&#39;, &#39;c&#39;, &#39;m&#39;]
+    
+    # creates the bar chart for question 2
+    plt.figure(1)
+    plt.bar(states, sales, color= colors)
+    plt.xlabel(&#34;State&#34;, fontsize= 16)
+    plt.ylabel(&#34;Amount of sale&#34;, fontsize = 16)
+    plt.title(&#34;Amount of sale in different states&#34;, fontsize = 16, bbox={&#39;facecolor&#39;: &#39;0.5&#39;, &#39;pad&#39;: 2})</code></pre>
+</details>
+</dd>
+<dt id="project.section_3"><code class="name flex">
+<span>def <span class="ident">section_3</span></span>(<span>contract_date_and_price_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates graph for section 3 of the output</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def section_3(contract_date_and_price_dict):
+    &#39;&#39;&#39;Creates graph for section 3 of the output&#39;&#39;&#39;
+    # creates the line chart for question 3
+    plt.figure(2, figsize = (9,5))
+    plt.title(&#39;Amount of Sales&#39;, fontsize = 16)
+    plt.xlabel(&#39;Months of the year&#39;, fontsize = 16)
+    plt.ylabel(&#39;Sales in Dollars&#39;, fontsize = 16)
+    # creating the X values
+    months = [&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;, &#39;April&#39;, &#39;May&#39;, &#39;Jun&#39;, &#39;Jul&#39;, &#39;Aug&#39;, &#39;Sep&#39;, &#39;Oct&#39;, &#39;Nov&#39;, &#39;Dec&#39;]
+    
+    # creating the y values
+    y_val = []
+    for value in contract_date_and_price_dict.values():
+        y_val.append(value)
+    plt.plot(months, y_val)
+    
+    # turning off scientific notation
+    plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)</code></pre>
+</details>
+</dd>
+<dt id="project.section_4"><code class="name flex">
+<span>def <span class="ident">section_4</span></span>(<span>percentage_brand_dict_sorted)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates pie chart for section 4 of the output</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def section_4(percentage_brand_dict_sorted):
+    &#39;&#39;&#39;Creates pie chart for section 4 of the output&#39;&#39;&#39;
+    plt.figure(3)
+    labels = []
+    sizes = []
+    for brand_percentage in percentage_brand_dict_sorted:       #Separates the dictionary into two lists to use as labels and sizes for the pie graph.
+        labels.append(brand_percentage[0]) 
+        sizes.append(round(brand_percentage[1], 1))
+    colors = [&#39;b&#39;, &#39;g&#39;, &#39;r&#39;, &#39;c&#39;, &#39;m&#39;, &#39;y&#39;]
+    number = 0
+    for num in range(len(percentage_brand_dict_sorted)):    #Helps assign colors to all elements of chart
+        if number == len(percentage_brand_dict_sorted) - 1:
+            number = 0
+        colors.append(colors[number])
+        number += 1
+    plt.title(&#39;Percentage of Colors by Different Car Brands&#39;, bbox={&#39;facecolor&#39;:&#39;0.5&#39;, &#39;pad&#39;:7})
+    plt.pie(sizes, labels = labels, colors = colors, autopct=&#39;%1.1f%%&#39;)</code></pre>
+</details>
+</dd>
+<dt id="project.section_5"><code class="name flex">
+<span>def <span class="ident">section_5</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates graph for last section of output</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def section_5():
+    &#39;&#39;&#39;Creates graph for last section of output&#39;&#39;&#39;
+    car_data_file = open(&#34;2019_car_sale.csv&#34;)
+    car_data_reader = csv.reader(car_data_file)
+    date_state_sale_dict = {&#39;Texas&#39;:[],&#39;Ohio&#39;:[],&#39;California&#39;:[],&#39;Nevada&#39;:[],&#39;Florida&#39;:[]}
+    header = True
+    for deal in car_data_reader:        #Creates dictionary for the function that will makes the y-points for each state
+        if header:
+            header = False
+            continue    
+        date = deal[1].split(&#34;/&#34;)[0]
+        state = deal[3]
+        sale = int(deal[5].replace(&#34;,&#34;, &#34;&#34;))
+        date_state_sale_dict[state].append([date, sale])
+        
+    x_points = [&#39;Janurary&#39;,&#39;February&#39;,&#39;March&#39;,&#39;April&#39;,&#39;May&#39;,&#39;June&#39;,&#39;July&#39;,&#39;August&#39;,&#39;September&#39;,&#39;October&#39;,&#39;November&#39;,&#39;December&#39;]
+    texas_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Texas&#39;)
+    cali_y_points = amount_sale_month_state(date_state_sale_dict, &#39;California&#39;)
+    florida_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Florida&#39;)
+    ohio_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Ohio&#39;)
+    nevada_y_points = amount_sale_month_state(date_state_sale_dict, &#39;Nevada&#39;)
+    car_data_file.close()           #All y-points created
+        
+    plt.figure(4, figsize = (12,5))       #Plots the points with respective legend
+    
+    plt.xlabel(&#39;Months&#39;)        #Customization
+    plt.ylabel(&#39;Amount of Sale&#39;)
+    plt.title(&#39;Amount of Sale in Different Months in Each State&#39;)
+    
+    plt.plot(x_points, texas_y_points, color = &#39;r&#39;)
+    plt.plot(x_points, cali_y_points, color = &#39;b&#39;)
+    plt.plot(x_points, florida_y_points, color = &#39;c&#39;)
+    plt.plot(x_points, ohio_y_points, color = &#39;y&#39;)
+    plt.plot(x_points, nevada_y_points, color = &#39;g&#39;)
+    plt.legend([&#39;Texas&#39;, &#39;California&#39;,&#39;Florida&#39;,&#39;Ohio&#39;,&#39;Nevada&#39;])</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="project.amount_sale_brand" href="#project.amount_sale_brand">amount_sale_brand</a></code></li>
+<li><code><a title="project.amount_sale_month_state" href="#project.amount_sale_month_state">amount_sale_month_state</a></code></li>
+<li><code><a title="project.main" href="#project.main">main</a></code></li>
+<li><code><a title="project.section_1" href="#project.section_1">section_1</a></code></li>
+<li><code><a title="project.section_2" href="#project.section_2">section_2</a></code></li>
+<li><code><a title="project.section_3" href="#project.section_3">section_3</a></code></li>
+<li><code><a title="project.section_4" href="#project.section_4">section_4</a></code></li>
+<li><code><a title="project.section_5" href="#project.section_5">section_5</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
