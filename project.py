@@ -227,7 +227,7 @@ plt.plot(months, y_val)
 # turning off scientific notation
 plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)
 
-# we need the code to graph the question 4 pie chart here
+# creates the pie chart for question 4
 plt.figure(3)
 labels = []
 sizes = []
@@ -245,7 +245,7 @@ plt.title('Percentage of Colors by Different Car Brands', bbox={'facecolor':'0.5
 plt.pie(sizes, labels = labels, colors = colors, autopct='%1.1f%%')
 
 
-# we need the code to graph the last line graph for question 5 here
+# creates the line chart for question 5
 car_data_file = open("2019_car_sale.csv")
 car_data_reader = csv.reader(car_data_file)
 date_state_sale_dict = {'Texas':[],'Ohio':[],'California':[],'Nevada':[],'Florida':[]}
