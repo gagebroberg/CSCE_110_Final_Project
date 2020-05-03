@@ -4,6 +4,7 @@
 # E-mail: gagebroberg@tamu.edu, brandontorres28@tamu.edu, officialjp201@tamu.edu
 # Description: The Dealership Manager, This program takes in data from a CSV file and uses that data to compute multiple data points for the dealer manager. It also creates visual graphs for the manager to better visualize the data in the CSV file.
 
+# Import modules
 import matplotlib.pyplot as plt
 import csv
 
@@ -257,10 +258,9 @@ def section_3(contract_date_and_price_dict):
     # turning off scientific notation
     plt.gcf().axes[0].yaxis.get_major_formatter().set_scientific(False)
 
-
+# This function creates the pie graph for question 4
 def section_4(percentage_brand_dict_sorted):
     '''Creates pie chart for section 4 of the output'''
-    # we need the code to graph the question 4 pie chart here
     plt.figure(3)
     labels = []
     sizes = []
@@ -278,9 +278,9 @@ def section_4(percentage_brand_dict_sorted):
     plt.pie(sizes, labels = labels, colors = colors, autopct='%1.1f%%')
 
 
+# This function creates the line graph for question 5
 def section_5():
     '''Creates graph for last section of output'''
-    # we need the code to graph the last line graph for question 5 here
     car_data_file = open("2019_car_sale.csv")
     car_data_reader = csv.reader(car_data_file)
     date_state_sale_dict = {'Texas':[],'Ohio':[],'California':[],'Nevada':[],'Florida':[]}
@@ -315,7 +315,7 @@ def section_5():
     plt.plot(x_points, nevada_y_points, color = 'g')
     plt.legend(['Texas', 'California','Florida','Ohio','Nevada'])
 
-
+# Main function that runs the different section functions.
 def main():
     '''Runs the different section functions under one main function, getting variables as needed'''
     state_dict, contract_date_and_price_dict, percentage_brand_dict_sorted = section_1()
